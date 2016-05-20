@@ -17,12 +17,12 @@
         .post(League.addLeague)
         
     router.route('/teams/:id?')
-        .get(League.getTeams)
-        .post(League.addTeam)
+        .get(Team.getTeams)
+        .post(Team.addTeam)
 
     router.route('/players/:id?')
-        .get(League.getPlayers)
-        .post(League.addPlayer)
+        .get(Player.getPlayers)
+        .post(Player.addPlayer)
 
     
 	//Make sure you export the router component
