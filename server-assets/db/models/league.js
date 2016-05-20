@@ -10,7 +10,7 @@
 		relations: {
 		    belongsTo: {
                 sport: {
-                    localField: 'sport',
+                    localField: 'spoty',
                     foreignKey: 'sportId'
                 }
             }
@@ -18,36 +18,48 @@
     })
     
     exports.getLeagues = function (req, res, next) {
-
-		getLeagues().then(
-			function (leagues) {
-				res.json(leagues);
-			}
-		);
+		if (req.params.id) {
+            getLeague(req.params.id).then(function(league) {
+                return res.json(league)
+            })
+        } else {
+            getLeagues(req.query).then(function(leagues) {
+                return res.json(leagues);
+            })
+        }
 	}	
 	
 	exports.addLeague = function (req, res, next) {
-
-		addLeague(req.body).then(
-			function (league) {
+		addLeague(req.body.name, req.body.description).then(function (league) {
 				return res.json(league);
-			}
-		);
-	}
-    
-    function getLeagues() {
-
-		var params = {};
-		
-		var options = {
-			//  with: ['']
-		};
-		
-		return League.findAll(params, options);	
+			});
 	}
 	
-	function addLeague(league) {
-
-		return League.create(league);			
+	exports.getLeague = function(req, res, net) {
+		getLeague(req.params.id).then(function(league){
+			console.log(league);
+			return res.json(league[0]);
+		})
 	}
-}())
+    
+    function getLeagues(query) {
+
+		var params = query;
+		var options = { with: ['team'] };
+			return League.findAll(params, options);	
+	}
+	
+	function getLeague(id) {
+		var options = { with: ['team']};
+			return League.find(id, options);
+	}
+	
+	function addLeague(name, description) {
+
+		return League.create({
+			id: uuid.v4(),
+			name: name,
+			description: description
+		});			
+	}
+}());
