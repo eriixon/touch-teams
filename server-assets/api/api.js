@@ -3,8 +3,8 @@
 	var router = require('express').Router();
     var Sport  = require('../db/models/sport');
     var League = require('../db/models/league');
-    var Team   = require('../db/models/team');
-    var Player = require('../db/models/player');
+  //  var Team   = require('../db/models/team');
+  //  var Player = require('../db/models/player');
     
     
 
@@ -16,13 +16,13 @@
         .get(League.getLeagues)
         .post(League.addLeague)
         
-    router.route('/teams/:id?')
+/*    router.route('/teams/:id?')
         .get(League.getTeams)
         .post(League.addTeam)
 
     router.route('/players/:id?')
         .get(League.getPlayers)
-        .post(League.addPlayer)
+        .post(League.addPlayer) */
 
     
 	//Make sure you export the router component
