@@ -10,7 +10,7 @@
             var $ctrl = this;
             
             Models.Sport.findAll({where: {name:$state.params.sport}}).then(function(sport){
-              $ctrl.sport = sport[0];
+              $ctrl.sport = $state.params.sport;
             })
             
             $ctrl.addLeague = function(league){
