@@ -7,13 +7,19 @@
     var League = db.defineResource({
         name: 'league',
 		filepath: path.join(__dirname, '/data/leagues.db'),
-		relations: {
-		    belongsTo: {
-                sport: {
-                    localField: 'sport',
-                    foreignKey: 'sportId'
-                }
-            }
+		relationships: {
+                    belongsTo: {
+                        sport: {
+                            localField: 'sport',
+                            localKey: 'sportId'
+                        	}
+                    },
+                     hasMany: {
+                        team: {
+                            localField: 'teams',
+                            foreignKey: 'leagueId'
+                        	}
+                	}
 		}
     })
     
