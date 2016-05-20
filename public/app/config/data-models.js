@@ -12,24 +12,18 @@
             ms.League = DS.defineResource({
                 name: 'league',
                 endpoint: 'leagues',  
-                relationships: {
-                    belongsTo: {
-                        sport: {
-                            localField: 'sport',
-                            localKey: 'sportId'
-                        }
-                    },
-                     hasMany: {
-                        team: {
-                            localField: 'teams',
-                            foreignKey: 'leagueId'
-                        }
-                }
-                }
             })
             
+            ms.Team = DS.defineResource({
+                name: 'team',
+                endpoint: 'leagues',  
+            })
             
-            
+            ms.Player = DS.defineResource({
+                name: 'player',
+                endpoint: 'players',  
+            })
+
         })
     
 }())

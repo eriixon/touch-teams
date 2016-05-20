@@ -6,14 +6,20 @@
     var Team = bd.defineResource({
         name: 'team',
         filepath: path.join(__dirname, '/data/teams.db'),
-        relations: {
-            belongsTo: {
-                league: {
-                    localField: 'league',
-                    foreignKey: 'leagueId'
-                }
-            }
-        }
+		relationships: {
+                    belongsTo: {
+                        league: {
+                            localField: 'league',
+                            localKey: 'leagueId'
+                        	}
+                    },
+                     hasMany: {
+                        team: {
+                            localField: 'player',
+                            foreignKey: 'teamId'
+                        	}
+                	}
+		}        
     })
     
     exports.getTeams = function (req, res, next) {
