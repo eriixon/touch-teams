@@ -23,7 +23,7 @@
                 return res.json(sport)
             })
         } else {
-            getSports().then(function(sports) {
+            getSports(req.require).then(function(sports) {
                 return res.json(sports);
             })
         }
@@ -46,6 +46,7 @@
     function getSports() {
 
         var params = {};
+        params.where = query;
 
         var options = {
             // with: ['league']
