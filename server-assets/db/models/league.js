@@ -10,7 +10,7 @@
 		relations: {
 		    belongsTo: {
                 sport: {
-                    localField: 'spoty',
+                    localField: 'sport',
                     foreignKey: 'sportId'
                 }
             }
@@ -30,12 +30,12 @@
 	}	
 	
 	exports.addLeague = function (req, res, next) {
-		addLeague(req.body.name, req.body.description).then(function (league) {
+		addLeague(req.body.name, req.body.description, req.body.sportId).then(function (league) {
 				return res.json(league);
 			});
 	}
 	
-	exports.getLeague = function(req, res, net) {
+	exports.getLeague = function(req, res, next) {
 		getLeague(req.params.id).then(function(league){
 			console.log(league);
 			return res.json(league[0]);
@@ -54,12 +54,13 @@
 			return League.find(id, options);
 	}
 	
-	function addLeague(name, description) {
+	function addLeague(name, description, sportId) {
 
 		return League.create({
 			id: uuid.v4(),
 			name: name,
-			description: description
+			description: description,
+			sportId: sportId
 		});			
 	}
 }());

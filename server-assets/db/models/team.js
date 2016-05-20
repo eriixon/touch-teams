@@ -27,7 +27,7 @@
             })
         }
     }
-    function getTeams(){
+    function getTeams(query){
         var params = query;
         var options = {with: ['player']};
         return Team.findAll(params, options);
@@ -39,7 +39,7 @@
 			return res.json(team[0]);
 		})
 	}
-    function getTeam(){
+    function getTeam(id){
         var options = {with: ['player']};
             return Team.findAll(params, options);
     }
@@ -49,11 +49,12 @@
 				return res.json(team);
 			});
 	}
-    function addTeam (name, description){
+    function addTeam (name, description, leagueId){
         return Team.create({
             id: uuid.v4(),
             name: name,
-            description: description
+            description: description,
+            leagueId: leagueId
         });
     }
 
