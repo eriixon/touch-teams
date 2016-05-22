@@ -3,7 +3,7 @@
     var path = require('path');
     var uuid = require('node-uuid');
     
-    var Team = bd.defineResource({
+    var Team = db.defineResource({
         name: 'team',
         filepath: path.join(__dirname, '/data/teams.db'),
 		relationships: {

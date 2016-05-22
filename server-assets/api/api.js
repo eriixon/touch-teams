@@ -3,8 +3,8 @@
 	var router = require('express').Router();
     var Sport  = require('../db/models/sport');
     var League = require('../db/models/league');
-  //  var Team   = require('../db/models/team');
-  //  var Player = require('../db/models/player');
+    var Team   = require('../db/models/team');
+    var Player = require('../db/models/player');
     
     
 

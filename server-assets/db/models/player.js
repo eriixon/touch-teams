@@ -3,7 +3,7 @@
     var path = require('path');
     var uuid = require('node-uuid');
     
-    var Player = bd.defineResource({
+    var Player = db.defineResource({
         name: 'player',
         filepath: path.join(__dirname, '/data/players.db'),
         relations: {
