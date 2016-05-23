@@ -6,7 +6,7 @@
             controller: LeagueController
         })
         
-        function LeagueController($state, Modules){
+        function LeagueController($state, Models){
             var $ctrl = this;
             
             $ctrl.sport = $state.params.sport;
