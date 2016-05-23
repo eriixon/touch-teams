@@ -12,9 +12,13 @@
             $ctrl.sport = $state.params.sport;
             $ctrl.league = $state.params.league;
             
-            Models.League.findAll({name: $state.params.league},{bypassCache: true}).then(function(league){
-              $ctrl.league = league[0];
-            })
+            Models.Sport.findAll({name: $state.params.sport},{bypassCache: true}).then(function(sport){
+                $ctrl.sport = sport[0];
+           
+                Models.League.findAll({name: $state.params.league},{bypassCache: true}).then(function(league){
+                    $ctrl.league = league[0];
+                })
+            });
             
             $ctrl.addTeam = function(team){
                 team.leagueId = $ctrl.league.id;
