@@ -8,20 +8,20 @@
         name: 'league',
 		filepath: path.join(__dirname, '/data/leagues.db'),
 		relationships: {
-                    belongsTo: {
-                        sport: {
-                            localField: 'sport',
-                            localKey: 'sportId'
-                        	}
+            belongsTo: {
+                sport: {
+                   localField: 'sport',
+                     localKey: 'sportId'
+                       }
                     },
                      hasMany: {
-                        team: {
+                        	team: {
                             localField: 'teams',
                             foreignKey: 'leagueId'
                         	}
                 	}
 		}
-    })
+    });
     
     exports.getLeagues = function (req, res, next) {
 		if (req.params.id) {
