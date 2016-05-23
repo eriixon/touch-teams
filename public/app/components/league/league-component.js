@@ -16,10 +16,11 @@
               $ctrl.league = league[0];
             })
             
-            $ctrl.addLeague = function(league){
-                league.sportId = $ctrl.sport.id;
-                Models.League.create(league)
-                $ctrl.newLeague = {}
+            $ctrl.addTeam = function(team){
+                team.sportId = $ctrl.league.sportId;
+                team.leagueId = $ctrl.league.id;
+                Models.Team.create(team)
+                $ctrl.newTeam = {}
             }
         }
     

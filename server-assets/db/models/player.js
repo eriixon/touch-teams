@@ -22,7 +22,7 @@
                 return res.json(player)
             })
         } else {
-            getPlayers(req.query).then(function(player) {
+            getPlayers(req.query).then(function(players) {
                 return res.json(players);
             })
         }

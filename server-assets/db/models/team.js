@@ -28,7 +28,7 @@
                 return res.json(team)
             })
         } else {
-            getTeams(req.query).then(function(team) {
+            getTeams(req.query).then(function(teams) {
                 return res.json(teams);
             })
         }
@@ -51,15 +51,15 @@
     }
     
 	exports.addTeam = function (req, res, next) {
-		addTeam(req.body.name, req.body.description).then(function (team) {
+		addTeam(req.body.name, req.body.city, req.body.sportId, req.body.leagueId).then(function (team) {
 				return res.json(team);
 			});
 	}
-    function addTeam (name, description, leagueId){
+    function addTeam (name, city, sportId, leagueId){
         return Team.create({
             id: uuid.v4(),
             name: name,
-            description: description,
+            city: city,
             leagueId: leagueId
         });
     }

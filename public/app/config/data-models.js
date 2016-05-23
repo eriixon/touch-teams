@@ -16,7 +16,7 @@
             
             ms.Team = DS.defineResource({
                 name: 'team',
-                endpoint: 'leagues',  
+                endpoint: 'teams',  
             })
             
             ms.Player = DS.defineResource({
