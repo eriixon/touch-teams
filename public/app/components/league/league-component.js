@@ -17,7 +17,6 @@
             })
             
             $ctrl.addTeam = function(team){
-                team.sportId = $ctrl.league.sportId;
                 team.leagueId = $ctrl.league.id;
                 Models.Team.create(team)
                 $ctrl.newTeam = {}

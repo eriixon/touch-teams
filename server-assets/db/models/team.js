@@ -51,11 +51,11 @@
     }
     
 	exports.addTeam = function (req, res, next) {
-		addTeam(req.body.name, req.body.city, req.body.sportId, req.body.leagueId).then(function (team) {
+		addTeam(req.body.name, req.body.city, req.body.leagueId).then(function (team) {
 				return res.json(team);
 			});
 	}
-    function addTeam (name, city, sportId, leagueId){
+    function addTeam (name, city, leagueId){
         return Team.create({
             id: uuid.v4(),
             name: name,
