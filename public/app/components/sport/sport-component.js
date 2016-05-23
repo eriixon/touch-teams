@@ -10,7 +10,9 @@
             var $ctrl = this;
 
             Models.Sport.findAll({name: $state.params.sport},{bypassCache: true}).then(function(sport){
+              
               $ctrl.sport = sport[0];
+              debugger
             })
             
             $ctrl.addLeague = function(league){
