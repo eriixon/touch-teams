@@ -14,9 +14,9 @@
             
             Models.League.findAll({where: $state.params.league},{bypassCache: true}).then(function(league){
               $ctrl.league = league[0];
-              Models.Team.findAll({ where: { league: $ctrl.league.id } }).then(function (teams) {
+                Models.Team.findAll({ where: {leagueId: $ctrl.league.id } }).then(function (teams) {
                     $ctrl.teams = teams;
-            })
+                })
             })
             
             $ctrl.addTeam = function(team){
