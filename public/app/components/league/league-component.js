@@ -12,13 +12,12 @@
             $ctrl.sport = $state.params.sport;
             $ctrl.league = $state.params.league;
             
-            Models.Sport.findAll({name: $state.params.sport},{bypassCache: true}).then(function(sport){
-                $ctrl.sport = sport[0];
-           
-                Models.League.findAll({name: $state.params.league},{bypassCache: true}).then(function(league){
-                    $ctrl.league = league[0];
-                })
-            });
+            Models.League.findAll({where: $state.params.league},{bypassCache: true}).then(function(league){
+              $ctrl.league = league[0];
+              Models.Team.findAll({ where: { league: $ctrl.league.id } }).then(function (teams) {
+                    $ctrl.teams = teams;
+            })
+            })
             
             $ctrl.addTeam = function(team){
                 team.leagueId = $ctrl.league.id;
