@@ -8,6 +8,8 @@
         
         function SportController($state, Models){
             var $ctrl = this;
+            var x = $state.params.sport;
+            debugger
 
             Models.Sport.findAll({name: $state.params.sport},{bypassCache: true}).then(function(sport){
               $ctrl.sport = sport[0];

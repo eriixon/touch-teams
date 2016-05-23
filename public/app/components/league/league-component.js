@@ -9,14 +9,19 @@
         function LeagueController($state, Models){
             var $ctrl = this;
             
-     //       $ctrl.sport = $state.params.sport;
-    //        $ctrl.league = $state.params.league;
+            $ctrl.sport = $state.params.sport;
+            $ctrl.league = $state.params.league;
+    
             
-            
-            Models.League.findAll({name: $state.params.league},{bypassCache: true}).then(function(league){
+             Models.Sport.findAll({name: $state.params.sport},{bypassCache: true}).then(function(sport){
+              $ctrl.sport = sport[0];
               debugger
-              $ctrl.league = league[0];
+                    Models.League.findAll({name: $state.params.league},{bypassCache: true}).then(function(league){
+                    debugger
+                    $ctrl.league = league[0];
             })
+            })
+
             
             
             $ctrl.addTeam = function(team){

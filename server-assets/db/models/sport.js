@@ -15,7 +15,7 @@
                 }
             }
         }
-    })
+    });
 
     exports.getSports = function(req, res, next) {
         if (req.params.id) {

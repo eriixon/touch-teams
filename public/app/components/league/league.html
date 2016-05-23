@@ -2,6 +2,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3>Add Team to {{$ctrl.league.name}}</h3>
+            <p><small>{{$ctrl.league.description}}</small></p>
         </div>
         <div class="panel-body">
             <form ng-submit="$ctrl.addTeam($ctrl.newTeam)" class="form">
